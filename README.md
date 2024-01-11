@@ -126,8 +126,8 @@ From the image below you can find the three layers (datasets) created in Bigquer
   dbt run -m staging.stg_customer
   dbt run -m data_warehouse.dim_customer
 
-- Commands to create tables and insert data <a href="https://github.com/KhaledFarghaly11/Northwind_Traders_OLTP_to_OLTP/tree/master/sql_bash_commands">here</a>
-- Commands to create Dim and Fact tables in different layers can be found <a href="https://github.com/KhaledFarghaly11/Northwind_Traders_OLTP_to_OLTP/tree/master/models">here</a>
+- Commands to create tables and insert data <a href="https://github.com/KhaledFarghaly11/Northwind_Traders_OLTP_to_OLTP/tree/main/sql_bash_commands">here</a>
+- Commands to create Dim and Fact tables in different layers can be found <a href="https://github.com/KhaledFarghaly11/Northwind_Traders_OLTP_to_OLTP/tree/main/models">here</a>
 
 
 ### Resources:
