@@ -85,11 +85,49 @@ From the image below you can find the three layers (datasets) created in Bigquer
 
 
 ### Getting started on dbt project
-- Commands to install dbt and connect to bigquery <a href="https://github.com/priye-1/OLAP_Dimensional_Modeling_for_Advanced_Analytics/blob/master/sql_bash_commands/dbt_bash_setup.sh">here</a>
-- Commands to create tables and insert data <a href="https://github.com/priye-1/OLAP_Dimensional_Modeling_for_Advanced_Analytics/tree/master/sql_bash_commands/bigquery_tables_setup">here</a>
-- Commands to create Dim and Fact tables in different layers can be found <a href="https://github.com/priye-1/OLAP_Dimensional_Modeling_for_Advanced_Analytics/tree/master/models">here</a>
-- If you are not able to enable billing for Bigquery on your account, insert data manually by uploading csv files located <a href="https://github.com/priye-1/OLAP_Dimensional_Modeling_for_Advanced_Analytics/tree/master/datasets">here</a>
+- Commands to install dbt and connect to bigquery
+  ```python
+  # create virtual environment
+  python -m venv env
 
+  # activate virtual environment on windows
+  env\Scripts\activate
+
+  # Installing dbt-bigquery will also install dbt-core and any other dependencies.
+  pip install dbt-b
+
+  # create dbt project
+  dbt init <dbt project name>
+
+  # choose database bigquery
+  # choose authentication method (oauth recommended)
+  # get gcp project id from google cloud platform
+  # choose dataset and enter all other options
+
+  # check for issues with setup
+  cd <dbt project name>
+  dbt debug
+
+  # instal gcloud using this link https://cloud.google.com/sdk/docs/install#windows
+
+  # login to profile
+  gloud init
+
+  # connect dbt and bigquery using Local OAuth gcloud setup - - https://docs.getdbt.com/docs/core/connect-data-platform/bigquery-setup#oauth-via-gcloud. Run command:
+  gcloud auth application-default login --scopes=https://www.googleapis.com/auth/bigquery,https://www.googleapis.com/auth/drive.readonly,https://www.googleapis.com/auth/iam.test
+
+  # run command again to ensure that all checks passed
+  dbt debug
+
+  # create tables in staging layer as views
+  dbt run --full-refresh
+
+  # update a particular table in a particular model
+  dbt run -m staging.stg_customer
+  dbt run -m data_warehouse.dim_customer
+
+- Commands to create tables and insert data <a href="https://github.com/KhaledFarghaly11/Northwind_Traders_OLTP_to_OLTP/tree/master/sql_bash_commands">here</a>
+- Commands to create Dim and Fact tables in different layers can be found <a href="https://github.com/KhaledFarghaly11/Northwind_Traders_OLTP_to_OLTP/tree/master/models">here</a>
 
 
 ### Resources:
